@@ -10,17 +10,15 @@ datasource db {
 
 model Contact {
   id             Int       @id @default(autoincrement())
-  phoneNumber    String?   @unique
-  email          String?   @unique
+  phoneNumber    String?   
+  email          String?   
   linkedId       Int?      @default(0)
   linkPrecedence LinkPrecedence
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   deletedAt      DateTime?
 
-  @@index([email], name: "email_idx")
-  @@index([phoneNumber], name: "phone_idx")
-  @@index([linkedId], name: "linkedId_idx")
+  
 }
 
 enum LinkPrecedence {
