@@ -17,7 +17,7 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.use("*",(req,res)=>{
-    return res.status(404).json({msg:"You have entered a wrong path"});
+    return res.status(404).json({msg:"You have entered a wrong path, the base route starts with /api/v1"});
 })
 
 const PORT = process.env.PORT;

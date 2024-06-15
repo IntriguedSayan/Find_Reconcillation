@@ -3,6 +3,6 @@ import { indentifyController } from "../controllers/identify.controller";
 
 const identifyRouter = Router();
 
-identifyRouter.get("/",indentifyController);
+identifyRouter.post("/",indentifyController);
 
 export {identifyRouter};
