@@ -34,12 +34,12 @@ const indentifyController =async (req:Request,res:Response) =>{
       let contacts
       if(email != null && phoneNumber != null){
 
-          contacts = await prisma.contact.findMany({where:{OR:[{email:email || undefined},{phoneNumber:phoneNumber || undefined}]}});
+          contacts = await prisma.contact.findMany({where:{OR:[{email:email},{phoneNumber:phoneNumber}]}});
       }
       else if(phoneNumber == null){
-          contacts = await prisma.contact.findMany({where:{OR:[{email:email || undefined}]}});
+          contacts = await prisma.contact.findMany({where:{OR:[{email:email}]}});
       }else{
-          contacts = contacts = await prisma.contact.findMany({where:{OR:[{phoneNumber:phoneNumber || undefined}]}});
+          contacts = contacts = await prisma.contact.findMany({where:{OR:[{phoneNumber:phoneNumber}]}});
       }
 
       if(contacts.length === 0){
